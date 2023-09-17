@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Poster Generator</title>
+    <style>
+        /* Add your CSS styles for the poster here */
+        /* You can define the poster's size, fonts, colors, etc. */
+    </style>
+</head>
+<body>
+    <h1>Event Poster Generator</h1>
+    <form id="posterForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" required><br>
+
+        <label for="photo">Your Photo (URL):</label>
+        <input type="url" id="photo" required><br>
+
+        <button type="button" onclick="generatePoster()">Generate Poster</button>
+    </form>
+    <div id="poster">
+        <!-- The generated poster will be displayed here -->
+    </div>
+
+    <script>
+        function generatePoster() {
+            const name = document.getElementById('name').value;
+            const photoUrl = document.getElementById('photo').value;
+
+            // Create the poster HTML
+            const posterHtml = `
+                <div class="poster">
+                    <h2>${name}</h2>
+                    <img src="${photoUrl}" alt="${name}'s Photo">
+                    <p>I will be attending this event!</p>
+                </div>
+            `;
+
+            // Display the poster
+            document.getElementById('poster').innerHTML = posterHtml;
+        }
+    </script>
+</body>
+</html>
